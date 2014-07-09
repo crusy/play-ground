@@ -1,0 +1,45 @@
+@(task: models.Task, lists: java.util.List[models.List])
+
+<form action="/task/update" method="post">
+	<input type="hidden" name="id" value="@task.id">
+	<div class="col-lg-6">
+		<div class="input-group">
+			<span class="input-group-addon">
+				<input type="checkbox" name="done" @if(task.done){checked="checked" class="checked" disabled="disabled"}else{class="submit-task"}>
+			</span>
+			<input type="text" class="form-control" value="@task.text" @if(task.done){disabled="disabled"} name="text">
+			<span class="input-group-btn">
+				<button class="btn btn-default submit-task" type="button" @if(task.done){disabled="disabled"}>@Messages("common.save")</button>
+			</span>
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="input-group list">
+			<div class="dropdown list submit-task">
+				<button class="btn btn-default dropdown-toggle" type="button" id="listSelector@task.id" data-toggle="dropdown" @if(task.done){disabled="disabled"}>
+					@if(task.list==null) {
+						@Messages("tasks.nolist")
+					} else {
+						@task.list
+					}
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="listSelector@task.id">
+					@for(list <- lists) {
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-listid="@list.id">@list.name</a></li>
+					}
+					<li role="presentation" class="divider"></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-listid="-1">@Messages("tasks.nolist")</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</form>
+<form action="/task/delete" method="post">
+	<div class="col-lg-2">
+		<div class="input-group">
+			<button class="btn btn-danger delete-task" type="button" data-taskid="@task.id"><span class="glyphicon glyphicon-remove"></span> @Messages("common.delete")</button>
+		</div>
+	</div>
+</form>
+<br>

@@ -1,0 +1,53 @@
+@(tasks: java.util.List[models.Task], lists:
+java.util.List[models.List])
+
+<div class="panel panel-default">
+	<div class="panel-heading">@Messages("tasks.headline")</div>
+	<div class="panel-body">
+		<p>@Messages("tasks.instruction1")</p>
+
+		@for(task <- tasks) {
+			@if(!task.done) {
+				@singletask(task, lists)
+			}
+		}
+
+		@for(task <- tasks) {
+			@if(task.done) {
+				@singletask(task, lists)
+			}
+		}
+
+		<p>@Messages("tasks.instruction2")</p>
+
+		<form action="/task/add" method="post">
+			<div class="col-lg-6">
+				<div class="input-group add-task">
+					<input type="text" class="form-control" placeholder="@Messages("tasks.defaulttext")" name="text" id="add-task-text">
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="input-group list">
+					<div class="dropdown list add-task">
+						<button class="btn btn-default dropdown-toggle" type="button" id="listSelector" data-toggle="dropdown" data-listid="-1">
+							<span class="text">@Messages("tasks.nolist")</span>
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="listSelector">
+							@for(list <- lists) {
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-listid="@list.id">@list.name</a></li>
+							}
+							<li role="presentation" class="divider"></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-listid="-1">@Messages("tasks.nolist")</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<span class="input-group-btn">
+					<button class="btn btn-success add-task" type="button"><span class="glyphicon glyphicon-plus"></span> @Messages("common.add")</button>
+				</span>
+			</div>
+		</form>
+	</div>
+</div>

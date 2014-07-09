@@ -1,0 +1,30 @@
+body {
+	padding-top: 50px;
+}
+
+.starter-template {
+	padding: 40px 15px;
+	text-align: center;
+}
+
+.input-group {
+	margin-bottom: 15px;
+}
+
+.dropdown {
+	float: left;
+	margin-right: 30px;
+}
+
+.input-group.list, .dropdown.list, .dropdown.list button, .dropdown.list ul {
+	width: 100%;
+	text-align: center;
+}
+
+.add-list input[type=text], .add-task input[type=text] {
+	border-radius: 4px !important;
+}
+
+.input-group.add-list, .input-group.add-task {
+	width: 100%;
+}

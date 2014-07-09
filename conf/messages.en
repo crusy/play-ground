@@ -1,0 +1,36 @@
+common.title=simpleTASKS
+
+common.menu.home=home
+common.menu.about=about
+common.menu.contact=contact
+common.menu.toggleNavi=Toggle navigation
+common.save=Save!
+common.rename=Rename!
+common.delete=Delete!
+common.add=Add!
+common.success.added=Successfully added!
+common.success.updated=Successfully updated!
+common.success.deleted=Successfully deleted!
+common.error.added=Not added :-(
+common.error.updated=Not updated :-(
+common.error.deleted=Not deleted :-(
+
+contact.headline=Contact
+contact.copy=Feel free to ask me anything
+
+about.headline=About
+about.copy=Just a little demo app...
+
+home.headline=Welcome back
+home.copy=Use the actions below to manage your day!
+
+tasks.headline=My tasks
+tasks.instruction1=Manage your tasks here:
+tasks.instruction2=Or add a new task:
+tasks.defaulttext=(new task)
+tasks.nolist=(no list)
+
+lists.headline=My lists
+lists.instruction1=Manage your lists here:
+lists.instruction2=Or add a new list:
+lists.defaultname=(new list)

@@ -1,0 +1,45 @@
+@(lists: java.util.List[models.List])
+
+<div class="panel panel-default">
+	<div class="panel-heading">@Messages("lists.headline")</div>
+	<div class="panel-body">
+		<p>@Messages("lists.instruction1")</p>
+
+		@for(list <- lists) {
+			<form action="/list/update" method="post">
+				<input type="hidden" name="id" value="@list.id">
+				<div class="col-lg-6">
+					<div class="input-group">
+						<input type="text" class="form-control" value="@list.name" name="name">
+						<span class="input-group-btn">
+							<button class="btn btn-default submit-list" type="button">@Messages("common.rename")</button>
+						</span>
+					</div>
+				</div>
+			</form>
+			<form action="/list/delete" method="post">
+				<div class="col-lg-6">
+					<div class="input-group">
+						<button class="btn btn-danger delete-list" type="button" data-listid="@list.id"><span class="glyphicon glyphicon-remove"></span> @Messages("common.delete")</button>
+					</div>
+				</div>
+			</form>
+			<br>
+		}
+
+		<p>@Messages("lists.instruction2")</p>
+
+		<form action="/list/add" method="post">
+			<div class="col-lg-6">
+				<div class="input-group add-list">
+					<input type="text" class="form-control add-list" placeholder="@Messages("lists.defaultname")" name="name">
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<span class="input-group-btn">
+					<button class="btn btn-success add-list" type="button"><span class="glyphicon glyphicon-plus"></span> @Messages("common.add")</button>
+				</span>
+			</div>
+		</form>
+	</div>
+</div>

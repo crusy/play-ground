@@ -1,0 +1,14 @@
+@(lists: java.util.List[models.List], tasks: java.util.List[models.Task], message: Html)
+
+<div class="starter-template">
+	<h1>@Messages("home.headline")</h1>
+	<p class="lead">@Messages("home.copy")</p>
+</div>
+
+@message
+
+@taskstable(tasks, lists)
+
+<br>
+
+@liststable(lists)
