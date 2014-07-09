@@ -1,20 +1,27 @@
+# Prerequisites
+
+Based on [Play Framework](http://www.playframework.com/documentation/2.3.x/Home), which is not required to start though. All required dependecies will be installed during startup
+
 # Requirements
 
-Requires [Play Framework](http://www.playframework.com/documentation/2.3.x/Home) with all its requirements ("activator" within classpath, etc)
-
-Requires SQL database; see conf/application.conf lines 39+ for configuration. The tables are created by framework. 
+Requires SQL database; see conf/application.conf lines 39+ for configuration. I recommend utf8mb4 charset. All tables are created by framework. 
 
 # Startup
 
-	$ cd /path/to/hello-java
-	$ activator
+	$ cd /path/to/project
+	$ ./activator
 	[hello-java] $ run
 
 Open [http://localhost:9000/](http://localhost:9000/).
 
+# Shutdown
+
+- end server: CTRL+D
+- end activator: CTRL+C
+
 # TODOs
 
-- rename project (not only within Eclipse!)
+- rename project (not only within Eclipse!), currently "hello-java" :-)
 - use Ajax to init/refresh views
 - add task filter: all, by list, done, ...
 - beautify layout for small screens
